@@ -40,23 +40,24 @@ struct ContentView: View {
                     //.pickerStyle(.navigationLink)
                 }
                 Section("How much do you want to tip?") {
-                    /*
                     Picker("Tip percentage", selection: $tipPercentage) {
                         ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
                         }
                     }
                     .pickerStyle(.segmented)
-                    */
+                    /*
                     Picker("Tip Amount", selection: $tipPercentage) {
                         ForEach(0..<101) {
                             Text("\($0) %")
                         }
                     }
                     .pickerStyle(.navigationLink)
+                     */
                 }
                 Section("Total Amount") {
                     Text(finalAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundStyle(tipPercentage == 0 ? .red : .black)
                 }
                 Section("Amount per person") {
                     Text(tipPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
